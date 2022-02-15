@@ -3,7 +3,7 @@ import image from '../assets/images/logo-DH.png';
 import ContentWrapper from './ContentWrapper';
 import GenresInDb from './GenresInDb';
 import LastMovieInDb from './LastMovieInDb';
-import ContentRowMovies from './ContentRowMovies';
+import ContentRowMovies from './stats/ContentRowStats';
 import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
 import SearchMovies from './SearchMovies';
