@@ -37,12 +37,29 @@ function ContentRowMovies(){
     
     const [ countUsers, setCountUsers] = useState([])
     const [ countProducts, setcountProducts] = useState([])
+    const [ lastUser, setLastUser] = useState([])
+    const [ countCategories, setCountCategories] = useState([])
+    const [ maxDiscount, setMaxDiscount] = useState([])
 
 
     useEffect(() => {
 		fetch('/api/users')
 			.then(response => response.json())
 			.then(data => setCountUsers(data.count))
+            .catch(error => console.log(error))
+	}, [])
+
+    useEffect(() => {
+		fetch('/api/users')
+			.then(response => response.json())
+			.then(data => setLastUser(data.users.pop()))
+            .catch(error => console.log(error))
+	}, [])
+
+    useEffect(() => {
+		fetch('/api/products')
+			.then(response => response.json())
+			.then(data => setCountCategories(data.countByCategory))
             .catch(error => console.log(error))
 	}, [])
 
@@ -58,6 +75,8 @@ function ContentRowMovies(){
         <div className="row">
             <SmallCard count={Number(countUsers.count)} title={'Cantidad de usuarios'} icon={'fa-clipboard-list'} color={'primary'}/>
             <SmallCard count={Number(countProducts.count)} title={'Cantidad de productos'} icon={'fa-award'} color={'success'}/>
+            <SmallCard count={lastUser.first_name + " " + lastUser.last_name} title={'Ultimo usuario'} icon={'fa-award'} color={'success'}/>
+            <SmallCard count={countCategories.length} title={'Total de categorias'} icon={'fa-award'} color={'success'}/>
         </div>
     )
 }
