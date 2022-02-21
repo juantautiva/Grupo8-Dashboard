@@ -15,13 +15,16 @@ function LastProduct(){
 	}, [])
 
     useEffect(() => {
-        console.log('Actualiza')
-        console.log(lastProduct.id_products)
-        const url = `/api/product/${lastProduct.id_products}`
-        fetch(url)
-			.then(response => response.json())
-			.then(data => setProduct(data.product))
-            .catch(error => console.log(error))
+        if(lastProduct !== undefined){
+            console.log('Actualiza')
+            console.log(lastProduct.id_products)
+            const url = `/api/product/${lastProduct.id_products}`
+            fetch(url)
+                .then(response => response.json())
+                .then(data => setProduct(data.product))
+                .catch(error => console.log(error))
+        }
+        
 	}, [lastProduct])
 
     return(
@@ -36,7 +39,7 @@ function LastProduct(){
                         <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={product[0] ? product[0].image : null} alt=" Star Wars - Mandalorian "/>
                     </div>
                     <p>{ product[0] ? product[0].description : null }</p>
-                    <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">View movie detail</a>
+                    {/* <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">View movie detail</a> */}
                 </div>
             </div>
         </div>

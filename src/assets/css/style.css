@@ -1,0 +1,7 @@
+.bg-gradient-secondary{
+    position: fixed;
+    width: 100%;
+    z-index: 20;
+    background: linear-gradient(to left, #DBD5A4, #649173);
+    border-radius: 0px 0px 42px 42px;
+}
