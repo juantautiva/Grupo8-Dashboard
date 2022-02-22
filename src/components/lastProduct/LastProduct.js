@@ -39,7 +39,7 @@ function LastProduct(){
                         <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={product[0] ? product[0].image : null} alt=" Star Wars - Mandalorian "/>
                     </div>
                     <p>{ product[0] ? product[0].description : null }</p>
-                    {/* <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">View movie detail</a> */}
+                    <a className="btn btn-danger" target="_blank" rel="nofollow" href={ product[0] ? `http://localhost:3000/product/product-details/${product[0].id_products}` : null }>Ver detalle</a>
                 </div>
             </div>
         </div>
